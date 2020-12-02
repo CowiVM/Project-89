@@ -5,5 +5,5 @@ function AddUser() {
     localStorage.setItem("First_User", username1);
     localStorage.setItem("Second_User", username2);
 
-    window.location("index1.html")
+    window.location("index1.html");
 }
