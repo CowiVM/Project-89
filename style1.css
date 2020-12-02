@@ -1,6 +1,6 @@
 body
 {
-	background-color: linear-gradient(red,yellow,green);
+	background-image: linear-gradient(red, yellow, green);
 }
 
 #player1_name , #player2_name
