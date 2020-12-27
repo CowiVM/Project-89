@@ -1,17 +1,20 @@
 player1_name = localStorage.getItem("First_User");
 player2_name = localStorage.getItem("Second_User");
 
-document.getElementById("player_question").innerHTML = player1_name;
-document.getElementById("player_answer").innerHTML = player2_name;
+document.getElementById("player_question").innerHTML = "Question Turn: " + player1_name;
+document.getElementById("player_answer").innerHTML = "Answer Turn: " + player2_name;
 
 document.getElementById("player1_name").innerHTML = player1_name;
 document.getElementById("player2_name").innerHTML = player2_name;
 
+update_player1_score = ""
+update_player2_score = ""
+
 player1_score = 0;
 player2_score = 0;
 
-document.getElementById("score1").innerHTML = player1_name + " = " + player1_score;
-document.getElementById("score2").innerHTML = player2_name + " = " + player2_score;
+document.getElementById("player1_score").innerHTML = " = " + player1_score;
+document.getElementById("player2_score").innerHTML = " = " + player2_score;
 
 
 function send() {
@@ -30,22 +33,38 @@ function send() {
     document.getElementById("question_number2").value = "";
 }
 
-question_turn = "First_User";
-answer_turn = "Second_User";
+question_turn = "player1";
+answer_turn = "player2";
 
 function check() {
     get_answer = document.getElementById("input_check_box").value;
     if (get_answer == actual_answer) {
         if (answer_turn == "player1") 
         {
-        update_player1_score = player1_score + 1;
+        update_player1_score = update_player1_score + 1;
         document.getElementById("player1_score").innerHTML = update_player1_score;
+        document.getElementById("output").innerHTML = ""
         } 
         else 
         {
-        update_player2_score = player2_score + 1;
-        document.getElementById("player2_score").innerHTML = update_player2_score;            
+            update_player1_score = update_player1_score - 1;
+            document.getElementById("player1_score").innerHTML = update_player1_score;
+            document.getElementById("output").innerHTML = ""
         }
+
+        if (answer_turn == "player2") 
+        {
+        update_player2_score = update_player2_score + 1;
+        document.getElementById("player2_score").innerHTML = update_player2_score;
+        document.getElementById("output").innerHTML = ""
+        } 
+        else 
+        {
+            update_player2_score = update_player2_score - 1;
+            document.getElementById("player2_score").innerHTML = update_player2_score;
+            document.getElementById("output").innerHTML = ""
+        }
+    }
     if (question_turn == "player1") {
             question_turn = "player2";
             document.getElementById("player_question").innerHTML = "Question Turn is - " + player2_name;
@@ -62,6 +81,16 @@ function check() {
             answer_turn = "player1";
             document.getElementById("player_answer").innerHTML = "Answer Turn is - " + player1_name;
         }
-        document.getElementById("output").innerHTML = ""        
+        document.getElementById("output").innerHTML = ""
+        correct_answer = "<br><br><h4 id='correct_answer'>The correct answer is " + actual_answer + "</h4>"
+        document.getElementById("output").innerHTML = correct_answer
+    if (update_player1_score == 10) {
+        document.getElementById("game_status").innerHTML = "Game Status is " + player1_name + "Won!!!🥳🥳🥳🎉🎉🎉🥇🏆"
+        window.location = "index.html"
+    }
+
+    if (update_player2_score == 10) {
+        document.getElementById("game_status").innerHTML = "Game Status is " + player2_name + "Won!!!🥳🥳🥳🎉🎉🎉🥇🏆"
+        window.location = "index.html"
     }
 }

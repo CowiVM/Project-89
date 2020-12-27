@@ -1,24 +1,28 @@
-body
-{
-	background-image: linear-gradient(red, yellow, green);
+body {
+	background-image: linear-gradient(red, orange, yellow, green, blue, indigo, violet);
+	background-size: cover;
 }
 
-#player1_name , #player2_name
-{
+#player1_name,
+#player2_name {
 	display: inline-block;
 	margin-left: 20px;
 }
-#question_number1, #question_number2
-{
+
+#question_number1,
+#question_number2 {
 	width: 60%;
 }
 
-#output
-{
-background: white;
-border-radius: 10px;
-border-top: 10px solid #AA4465;
-padding: 10px;
-float: none;
-text-align: left;
+#output {
+	background: white;
+	border-radius: 10px;
+	border-top: 10px solid #AA4465;
+	padding: 10px;
+	float: none;
+	text-align: left;
+}
+
+#correct_answer {
+	color: darkturquoise;
 }
