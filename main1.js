@@ -45,26 +45,26 @@ function check() {
         document.getElementById("player1_score").innerHTML = update_player1_score;
         document.getElementById("output").innerHTML = ""
         } 
-        else 
-        {
-            update_player1_score = update_player1_score - 1;
-            document.getElementById("player1_score").innerHTML = update_player1_score;
-            document.getElementById("output").innerHTML = ""
-        }
-
         if (answer_turn == "player2") 
         {
         update_player2_score = update_player2_score + 1;
         document.getElementById("player2_score").innerHTML = update_player2_score;
         document.getElementById("output").innerHTML = ""
         } 
-        else 
-        {
+    }
+        else {
+            if (answer_turn == "player1") {
+            update_player1_score = update_player1_score - 1;
+            document.getElementById("player1_score").innerHTML = update_player1_score;
+            document.getElementById("output").innerHTML = ""
+            }
+        
+            else{
             update_player2_score = update_player2_score - 1;
             document.getElementById("player2_score").innerHTML = update_player2_score;
             document.getElementById("output").innerHTML = ""
         }
-    }
+        }
     if (question_turn == "player1") {
             question_turn = "player2";
             document.getElementById("player_question").innerHTML = "Question Turn is - " + player2_name;
